@@ -58,12 +58,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng2-canvas-whiteboard-example",
+            "outputPath": {
+              "base": "dist/ng2-canvas-whiteboard-example"
+            },
             "index": "projects/ng2-canvas-whiteboard-example/src/index.html",
-            "main": "projects/ng2-canvas-whiteboard-example/src/main.ts",
-            "polyfills": "projects/ng2-canvas-whiteboard-example/src/polyfills.ts",
+            "polyfills": [
+              "projects/ng2-canvas-whiteboard-example/src/polyfills.ts"
+            ],
             "tsConfig": "projects/ng2-canvas-whiteboard-example/tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -73,7 +76,8 @@
             "styles": [
               "projects/ng2-canvas-whiteboard-example/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "projects/ng2-canvas-whiteboard-example/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -88,8 +92,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
